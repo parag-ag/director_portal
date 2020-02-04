@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-
+from .models import internal_letter,external_letter
 # Create your views here.
 def user_login(request):
     if request.user.is_active:
@@ -30,7 +30,9 @@ def user_login(request):
 def dashboard(request):
     if request.user.is_active:
         return render(request,'home/dashboard.html',
-                              {'user_info':request.user,})
+                              {'user_info':request.user,
+                              'external_letters':external_letter.objects.all(),
+                              'internal_letters':internal_letter.objects.all(),})
     else:
         return HttpResponseRedirect(reverse('user_login'))
 

@@ -1,2 +1,20 @@
-dashboard
+
 <a href="/logout/">LOGOUT</a>
+{% if external_letters %}
+<h1>External Letters</h1>
+  {% for external_letter in external_letters %}
+    <h2>{{external_letter.subject}}</h2>
+    <h5>{{external_letter.get_fromm_display}}</h5>
+    <h5>{{external_letter.get_to_display}}</h5>
+  {% endfor %}
+{% endif %}
+
+
+{% if internal_letters %}
+<h1>Internal Letters</h1>
+  {% for internal_letter in internal_letters %}
+    <h2>{{internal_letter.subject}}</h2>
+    <h5>{{internal_letter.get_fromm_display}}</h5>
+    <h5>{{internal_letter.get_to_display}}</h5>
+  {% endfor %}
+{% endif %}
