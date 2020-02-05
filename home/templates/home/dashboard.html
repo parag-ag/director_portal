@@ -1,5 +1,47 @@
+{% extends 'home\base.html' %}
+{% load static %}
+{% block body %}
 
-<a href="/logout/">LOGOUT</a>
+<header class="border-b md:flex md:items-center md:justify-between p-1 pb-0 shadow-lg md:pb-4">
+  
+
+   <div class="flex items-center justify-between mb-1 md:mb-0"> 
+    <h1 class="leading-none text-2xl text-grey-darkest">
+      
+      Director's Portal
+    </h1>
+    
+  </div>
+  <nav>
+    <ul class="list-reset md:flex md:items-center">
+      <li class="md:ml-4">
+        <a class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" href="#">
+          Sign out
+        </a>
+      </li>
+     
+    </ul>
+  </nav> 
+ 
+
+
+</header>
+
+<div class="container">
+  <div class="row py-3">
+      <div class="col-3 order-2" id="sticky-sidebar">
+          <div class="sticky-top">
+              ...
+          </div>
+      </div>
+      <div class="col" id="main">
+          <h1>Main Area</h1>
+          ...   
+      </div>
+  </div>
+</div>
+
+
 {% if external_letters %}
 <h1>External Letters</h1>
   {% for external_letter in external_letters %}
@@ -18,3 +60,4 @@
     <h5>{{internal_letter.get_to_display}}</h5>
   {% endfor %}
 {% endif %}
+{% endblock %}
