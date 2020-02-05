@@ -3,61 +3,55 @@
 {% block body %}
 
 <header class="border-b md:flex md:items-center md:justify-between p-1 pb-0 shadow-lg md:pb-4">
-  
 
-   <div class="flex items-center justify-between mb-1 md:mb-0"> 
-    <h1 class="leading-none text-2xl text-grey-darkest">
-      
-      Director's Portal
-    </h1>
-    
-  </div>
-  <nav>
-    <ul class="list-reset md:flex md:items-center">
-      <li class="md:ml-4">
-        <a class="block no-underline hover:underline py-2 text-grey-darkest hover:text-black md:border-none md:p-0" href="#">
-          Sign out
-        </a>
-      </li>
-     
-    </ul>
-  </nav> 
- 
+    <div class="flex items-center justify-between mb-1 md:mb-0">
+        <h1 class="leading-none text-2xl text-grey-darkest">
+
+            Director's Portal
+        </h1>
+    </div>
+
+
+
 
 
 </header>
 
-<div class="container">
-  <div class="row py-3">
-      <div class="col-3 order-2" id="sticky-sidebar">
-          <div class="sticky-top">
-              ...
-          </div>
-      </div>
-      <div class="col" id="main">
-          <h1>Main Area</h1>
-          ...   
-      </div>
-  </div>
-</div>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,400,700' />
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+<nav role="navigation" class="navigation">
+    <ul class="navigation__links">
+      
+      <li>
+        <a class="navigation__link" href="#home">
+          <i class="fa fa-home" aria-hidden="true"></i>
+          <p class="navigation__text navigation__text--home">Home</p>
+        </a>
+      </li>
+      
+      <li>
+        <a class="navigation__link navigation__link--yellow" href="#about-me">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <p class="navigation__text navigation__text--about-me">About Me</p>
+        </a>
+      </li>
+      
+      <li>
+        <a class="navigation__link navigation__link--teal" href="#services">
+          <i class="fa fa-wrench" aria-hidden="true"></i>
+          <p class="navigation__text navigation__text--services">Services</p>
+        </a>
+      </li>
+      
+      <li>
+        <a class="navigation__link navigation__link--orange" href="#contact-me">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <p class="navigation__text navigation__text--contact-me">Contact Me</p>
+        </a>
+      </li>
 
-
-{% if external_letters %}
-<h1>External Letters</h1>
-  {% for external_letter in external_letters %}
-    <h2>{{external_letter.subject}}</h2>
-    <h5>{{external_letter.get_fromm_display}}</h5>
-    <h5>{{external_letter.get_to_display}}</h5>
-  {% endfor %}
-{% endif %}
-
-
-{% if internal_letters %}
-<h1>Internal Letters</h1>
-  {% for internal_letter in internal_letters %}
-    <h2>{{internal_letter.subject}}</h2>
-    <h5>{{internal_letter.get_fromm_display}}</h5>
-    <h5>{{internal_letter.get_to_display}}</h5>
-  {% endfor %}
-{% endif %}
-{% endblock %}
+    </ul>
+  </nav>
+  
+  {% endblock %}
