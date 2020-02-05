@@ -1,1 +1,57 @@
-dashboard
+{% extends 'home\base.html' %}
+{% load static %}
+{% block body %}
+
+<header class="border-b md:flex md:items-center md:justify-between p-1 pb-0 shadow-lg md:pb-4">
+
+    <div class="flex items-center justify-between mb-1 md:mb-0">
+        <h1 class="leading-none text-2xl text-grey-darkest">
+
+            Director's Portal
+        </h1>
+    </div>
+
+
+
+
+
+</header>
+
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,400,700' />
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+<nav role="navigation" class="navigation">
+    <ul class="navigation__links">
+      
+      <li>
+        <a class="navigation__link" href="#home">
+          <i class="fa fa-home" aria-hidden="true"></i>
+          <p class="navigation__text navigation__text--home">Home</p>
+        </a>
+      </li>
+      
+      <li>
+        <a class="navigation__link navigation__link--yellow" href="#about-me">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <p class="navigation__text navigation__text--about-me">About Me</p>
+        </a>
+      </li>
+      
+      <li>
+        <a class="navigation__link navigation__link--teal" href="#services">
+          <i class="fa fa-wrench" aria-hidden="true"></i>
+          <p class="navigation__text navigation__text--services">Services</p>
+        </a>
+      </li>
+      
+      <li>
+        <a class="navigation__link navigation__link--orange" href="#contact-me">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <p class="navigation__text navigation__text--contact-me">Contact Me</p>
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+  
+  {% endblock %}
