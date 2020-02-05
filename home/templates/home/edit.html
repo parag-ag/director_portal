@@ -1,0 +1,58 @@
+{% extends 'home\base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="container"> 
+    <div class="logger"></div>
+    <form class="better-form">
+      <h1>Better forms</h1>
+        <div class="field">
+          <label class="field__label" for="name">Name</label>
+          <input class="field__input" type="text" placeholder="John" required autocomplete autofocus id="name">
+        </div>
+        <div class="field">
+          <label class="field__label" for="phone">Phone number</label>
+          <input class="field__input" type="phone" placeholder="01.23.45.67.89" required autocomplete id="phone">
+        </div>
+        <div class="field">
+          <label class="field__label" for="email">Email (in a verly long labeled field)</label>
+          <input class="field__input" type="email" placeholder="john@firm.tld" required autocomplete id="email">
+        </div>
+        <div class="field">
+          <label class="field__label" for="message">Message</label>
+          <textarea class="field__input" type="email" placeholder="Unicorns FTW!" required autocomplete spellcheck id="message"></textarea>
+        </div>
+        <div class="field">
+          <label class="field__label" for="selecta">How did your great uncle die?</label>
+          <select class="field__input" id="selecta" required>
+            <option class="placeholder" disabled selected>Choose well</option> 
+            <option>Some lunatic missiled his car...</option>
+            <option>A heart attack when he found out I was in the will!</option>
+            <option>I don't know, the police have got it wrong!</option>
+          </select>
+        </div>
+        <div class="field">
+          <div class="field__label">Do you like</div>
+          <div class="field__input field__input--multiline">
+            <input type="checkbox" id="chk1"><label for="chk1">Naked women</label><br/>
+            <input type="checkbox" id="chk2"><label for="chk2">Drug abuse</label><br/>
+            <input type="checkbox" id="chk3"><label for="chk3">Driving fast</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="field__label">Who's the boss?</div>
+          <div class="field__input field__input--multiline">
+            <input type="radio" name="smell" id="rad1" required><label for="rad1">Gandhi</label><br/>
+            <input type="radio" name="smell" id="rad2"><label for="rad2">Jesus</label><br/>
+            <input type="radio" name="smell" id="rad3"><label for="rad3">Shakira</label>
+         </div>
+       </div>
+      <div class="field">
+        <div class="field__label"></div>
+        <button class="field__input field__input--submit" type="submit">Here we go!</button>
+      </div>
+    </form>
+  </div>
+  {% endblock %}
+  
+  

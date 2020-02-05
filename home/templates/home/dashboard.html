@@ -5,10 +5,12 @@
 <header class="border-b md:flex md:items-center md:justify-between p-1 pb-0 shadow-lg md:pb-4">
 
   <div class="flex items-center justify-between mb-1 md:mb-0">
-    <h1 class="leading-none text-2xl text-grey-darkest">
+    <center>
+      <h1 class="leading-none text-2xl text-grey-darkest">
 
-      Director's Portal
-    </h1>
+        Director's Portal
+      </h1>
+    </center>
   </div>
 
 
@@ -53,8 +55,8 @@
 
   </ul>
 </nav>
-<div class ='container'>
- 
+<div class='container'>
+
 
   {% if external_letters %}
   <h1>External Letters</h1>
@@ -82,12 +84,20 @@
       <th>Si No.</th>
       <th>in date</th>
       <th>doc type</th>
+      <th>Reference</th>
+      <th>from</th>
+      <th>to</th>
+      <th>subject</th>
     </tr>
     {% for internal_letter in internal_letters %}
     <tr>
       <th>{{internal_letter.si_no}}</th>
       <th>{{internal_letter.in_date}}</th>
+      <th>{{internal_letter.doc_type}}</th>
       <th>{{internal_letter.reference}}</th>
+      <th>{{internal_letter.from}}</th>
+      <th>{{internal_letter.to}}</th>
+      <th>{{internal_letter.subject}}</th>
     </tr>
   </table>
 

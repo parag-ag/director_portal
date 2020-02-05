@@ -1,0 +1,340 @@
+@import url(https://fonts.googleapis.com/css?family=Dosis:400,600);
+//@import url(//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
+
+$bp-sm: 24em;    // 480px
+$bp-smd: 30em;    // 600px
+$bp-md: 38.4em;  // 768px
+$bp-lg: 50em;    // 1000px
+$bp-xl: 60em;    // 1200px
+
+$brand-color: #468;
+$form-fontsize: 1.8rem;
+$spacing-unit: 1.5rem;
+$fullwidth-lateral-margin: 0.75em;
+$fields-vertical-padding: 0.5em;
+
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+//  transition: all 0.25s;
+}
+
+html {
+  // Should be 62.5%, dunno why */
+  font-size: 50%;   /* 10px */
+}
+
+body {
+  border-top: solid 50px $brand-color;
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.8em;  /* 18 px */
+  line-height: 1.5;
+  color: #333;
+}
+
+.container {
+  padding: 2em $fullwidth-lateral-margin;
+  & .logger:after {content: " xs-480-";}
+    
+  @media (min-width: $bp-sm) {
+    & .logger:after {content: " sm-480+";}
+  }
+  
+  @media (min-width: $bp-smd) {
+    & .logger:after {content: " smd-600+";}
+  }
+  
+  @media (min-width: $bp-md) {
+    width: 74rem;
+    margin: 0 auto;
+    padding: 2em 0;
+    & .logger:after {content: " md-768+";}
+  }
+  
+  @media (min-width: $bp-lg) {
+    width: 96rem;
+    padding: 2em ($fullwidth-lateral-margin * 2);
+    & .logger:after {content: " lg-1000+";}
+  }
+  
+  @media (min-width: $bp-xl) {
+    width: 116rem;
+    & .logger:after {content: " xl-1200+";}
+  }
+}
+
+
+h1 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-size: 3em;
+  font-weight: normal;
+  line-height: 1;
+  border-bottom: 0.075em solid $brand-color;
+  color: $brand-color;
+}
+
+/* BETTER FORM FTW! */
+
+.better-form {
+  font-size: $form-fontsize;  /* Form main font-size control */
+}
+
+.field {
+  margin-bottom: $spacing-unit;
+//  background: #aaa;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.field__label {
+  display: block;
+  width: 100%;
+  padding-bottom: 0.10em;
+  font-weight: bold;
+  color: $brand-color;
+//  background: #f0f0f0;
+}
+
+.field__input {
+  position: relative;
+  display: block;
+  width: 100%;
+// background: #e8e8e8;
+}
+
+/*button */.field__input--submit {
+  margin-top: 2rem;
+  padding: 0.5em 0;
+  background: transparent;
+  color: $brand-color;
+  border: 2px solid;
+  font-weight: bold;
+  transition: all 0.1s;
+}
+
+/*button */.field__input--submit:active,
+/*button */.field__input--submit:hover {
+  background: darken($brand-color, 5%);
+  color: white;
+  border-color: darken($brand-color, 5%);
+}
+
+
+/* Responsive fields */
+
+@media (min-width: $bp-smd) {
+
+  .field {
+    display: flex;
+  }
+
+  .field__label {
+    width: 33%;
+    padding: $fields-vertical-padding 0;
+    padding-right: $spacing-unit;
+  }
+
+  .field__input {
+    width: 67%;
+  }
+  
+  .field__input--multiline {
+    padding: $fields-vertical-padding 0;
+  }
+}
+
+@media (min-width: $bp-md) {
+
+  /* Those two rules can be removed if the form has no use for fieldsets */
+  .field {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+@media (min-width: $bp-lg) {
+
+  .field__label {
+    text-align: right;
+  }
+
+  .field__input {
+    width: 50%;
+  }
+}
+
+@media (min-width: $bp-xl) {
+  .field__input {
+    width: 33%;
+  }
+}
+
+
+/* INPUTS GLOBALS */
+
+input[type="text"],
+input[type="email"],
+input[type="phone"],
+select,
+textarea {
+  padding: $fields-vertical-padding 0.5em;
+  border: 2px solid #ccc;
+  background-color: white;
+
+  /* Statuses */
+
+  &:focus {
+  outline: none;
+  border: 2px solid #888; 
+  }
+  
+  &:invalid:focus {
+//    outline: 1px solid red;
+//    box-shadow: 0 0 3px 2px rgba(255,0,0,0.25); 
+  border: 2px solid #c88; 
+  }
+
+  &:valid:focus {
+//    outline: 1px solid green;
+//    box-shadow: 0 0 3px 2px rgba(0,255,64,0.25); 
+  border: 2px solid #8c8; 
+  }
+}
+
+
+/* Placeholders */
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder { font-style: italic; }
+input::-moz-input-placeholder,
+textarea::-moz-input-placeholder { font-style: italic; }
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder { font-style: italic; }
+input::input-placeholder,
+textarea::input-placeholder { font-style: italic; }
+
+option.placeholder { font-style: italic; display: none; }
+
+/* Custom chechboxes and radio buttons styling */
+
+$checkradio-size: 1.5rem;
+
+input[type="checkbox"],
+input[type="radio"] {
+  ddisplay: none;
+  // HTML5 validation hack
+  position: absolute;
+  bottom: 0.9em;
+  left: 0.2em;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+  position: relative;
+  padding-left: ($checkradio-size + $spacing-unit);
+  cursor: pointer;
+}
+
+input[type="checkbox"] + label:before,
+input[type="radio"] + label:before,
+input[type="checkbox"] + label:after,
+input[type="radio"] + label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: $checkradio-size;
+  height: $checkradio-size;
+  margin-top: -($checkradio-size / 1.5);  // Magical values are evil!
+}
+
+input[type="checkbox"] + label:before,
+input[type="radio"] + label:before {
+  border: 2px solid $brand-color;
+  background-color: white;  // HTML5 validation hack
+}
+
+input[type="radio"] + label:before {
+  border-radius: $checkradio-size;
+}
+
+input[type="checkbox"] + label:after,
+input[type="radio"] + label:after {
+  background: transparentize($brand-color, 1);
+  border: 2px solid transparent;
+  transition: all 0.1s;
+}
+
+input[type="radio"] + label:after {
+  border-radius: $checkradio-size;
+}
+
+input[type="checkbox"]:checked + label:after,
+input[type="radio"]:checked + label:after { 
+  background: $brand-color;
+}
+
+
+/* Custom dropdowns (select's) styling */
+
+select {
+  position: relative;
+  -webkit-appearance: none;  /*Removes default chrome and safari style*/
+  -moz-appearance: none;  /* Removes Default Firefox style*/
+  text-indent: 0.01px;  /* Removes default arrow from firefox*/
+  text-overflow: "";  /*Removes default arrow from firefox*/
+  cursor: pointer;
+}
+
+select:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 1rem;
+  width: 1rem;
+  height: 1rem;
+  background: $brand-color;
+  
+}
+
+option {
+-webkit-appearance: none;
+    -moz-appearance: none;
+/*
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-padding-end: 0px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -moz-padding-start: 2px;
+*/
+//  color: #eee;
+//  padding-top: $fields-vertical-padding;
+//  background-color: $brand-color;
+}
+
+
+
+/* TODO
+
+- if label on multiline, input full height (flexbox)
+- automatic "no fieldset" mode
+- .legend has no room 
+
+*/
+
+.logger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #eee;
+  padding-right: 1rem;
+  line-height: 50px;
+}
+
