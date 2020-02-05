@@ -33,14 +33,14 @@
       <li>
         <a class="navigation__link navigation__link--yellow" href="#about-me">
           <i class="fa fa-user" aria-hidden="true"></i>
-          <p class="navigation__text navigation__text--about-me">About Me</p>
+          <p class="navigation__text navigation__text--about-me">add entry</p>
         </a>
       </li>
       
       <li>
         <a class="navigation__link navigation__link--teal" href="#services">
           <i class="fa fa-wrench" aria-hidden="true"></i>
-          <p class="navigation__text navigation__text--services">Services</p>
+          <p class="navigation__text navigation__text--services">Something</p>
         </a>
       </li>
       
@@ -53,5 +53,23 @@
 
     </ul>
   </nav>
-  
+  <center>
+  {% if external_letters %}
+<h1>External Letters</h1>
+{% for external_letter in external_letters %}
+<h2>{{external_letter.subject}}</h2>
+<h5>{{external_letter.get_fromm_display}}</h5>
+<h5>{{external_letter.get_to_display}}</h5>
+{% endfor %}
+{% endif %}
+
+
+{% if internal_letters %}
+<h1>Internal Letters</h1>
+{% for internal_letter in internal_letters %}
+<h2>{{internal_letter.subject}}</h2>
+<h5>{{internal_letter.get_fromm_display}}</h5>
+<h5>{{internal_letter.get_to_display}}</h5>
+{% endfor %}
+{% endif %}</center>
   {% endblock %}
