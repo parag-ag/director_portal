@@ -1,108 +1,322 @@
-{% extends 'home\base.html' %}
 {% load static %}
-{% block body %}
 
-<header class="border-b md:flex md:items-center md:justify-between p-1 pb-0 shadow-lg md:pb-4">
 
-  <div class="flex items-center justify-between mb-1 md:mb-0">
-    <center>
-      <h1 class="leading-none text-2xl text-grey-darkest">
+<html lang="en">
 
-        Director's Portal
-      </h1>
-    </center>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>IIT Guwahati - Central Login System</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+
+  <!-- MetisMenu CSS -->
+  <link href="{% static 'metisMenu.min.css' %}" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="{% static 'startmin.css'%}" rel="stylesheet">
+
+
+  <!-- DataTables CSS -->
+  <link href="{% static 'dataTables.bootstrap.css' %}" rel="stylesheet">
+
+  <!-- DataTables Responsive CSS -->
+  <link href="{% static 'dataTables.responsive.css' %}" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="{% static 'font-awesome.min .css'%}" rel="stylesheet" type="text/css">
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/metisMenu.min.js"></script>
+  <script src="js/startmin.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/dataTables.bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#dataTables-example').DataTable({
+        responsive: true
+      });
+    });
+  </script>
+  <script>
+    $(function () {
+      $('.form-control').keypress(function (e) {
+        if (e.which == 34 || e.which == 39) {
+          return false;
+        } else {
+          return true;
+        }
+      });
+    });
+  </script>
+</head> <!-- jQuery -->
+
+
+<!-- Bootstrap Core JavaScript -->
+
+
+<!-- Metis Menu Plugin JavaScript -->
+
+
+<!-- Custom Theme JavaScript -->
+
+
+<!-- DataTables JavaScript -->
+
+
+<!-- Page-Level Demo Scripts - Tables - Use for reference -->
+
+<body cz-shortcut-listen="true">
+
+  <style>
+    .overflow {
+      overflow: scroll;
+      height: 640px;
+    }
+  </style>
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="system.php">Admin - Central Login System</a>
+    </div>
+
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <ul class="nav navbar-right navbar-top-links">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <img src="images/jbg.jpg" width="35" style="border-radius:20px;">
+          Jnanendra Ballav Goswami <b class="caret"></b>
+
+        </a>
+        <ul class="dropdown-menu dropdown-user">
+          <li><a href="system_profile.php"><i class="fa fa-user fa-fw"></i> My Profile</a>
+          </li>
+          <li class="divider"></li>
+          <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!-- /.navbar-top-links -->
+
+    <div class="navbar-default sidebar overflow" role="navigation">
+      <div class="sidebar-nav navbar-collapse">
+        <ul class="nav in" id="side-menu">
+          <li class="sidebar-search in">
+            <div class="input-group custom-search-form" style="text-align:center;">
+              <a href="system.php" class="active"><img width="45%" src="images/logo.png"></a>
+            </div>
+            <!-- /input-group -->
+          </li>
+          <li>
+            <a href="system.php" class="active"><i class="fa fa-home fa-fw"></i> Home</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-file-text-o fa-fw"></i> Application Entry<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="system_create_new.php">Add New Entry</a>
+              </li>
+              <li>
+                <a href="system_search.php">Search Entry</a>
+              </li>
+              <li>
+                <a href="system_backdate_entry.php">Backlog Entry</a>
+              </li>
+              <li>
+                <a href="system_external_application.php">External Applications</a>
+              </li>
+              <li>
+                <a href="export_data.php">Download Records</a>
+              </li>
+            </ul>
+            <!-- /.nav-second-level -->
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-bed fa-fw"></i> Guesthouse Booking<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="system_guesthouse_new_applications.php">Unread Applications</a>
+              </li>
+              <li>
+                <a href="system_guesthouse_applications.php">Search Old Applications</a>
+              </li>
+            </ul>
+            <!-- /.nav-second-level -->
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-train fa-fw"></i>Railway Concession Applications<span
+                class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="system_railway_concession_new_applications.php">Unread Applications</a>
+              </li>
+              <li>
+                <a href="system_railway_concession_applications.php">Search Old Applications</a>
+              </li>
+            </ul>
+            <!-- /.nav-second-level -->
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-university fa-fw"></i>Community Hall Boking<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="system_mch_new_applications.php">Unread Applications</a>
+              </li>
+              <li>
+                <a href="system_mch_applications.php">Search Old Applications</a>
+              </li>
+            </ul>
+            <!-- /.nav-second-level -->
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-money fa-fw"></i> Outside Scholarship Form<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="system_schp_04_new_applications.php">Unread Applications</a>
+              </li>
+              <li>
+                <a href="system_schp_04_applications.php">Search Old Applications</a>
+              </li>
+              <li>
+                <a href="system_schp_04_query_applications.php">Query Applications</a>
+              </li>
+            </ul>
+            <!-- /.nav-second-level -->
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-bullseye fa-fw"></i> Disciplinary Committee Diary <span
+                class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="system_register_new_case.php">Register New case</a>
+              </li>
+              <li>
+                <a href="system_running_disciplinary_cases.php">Open Cases</a>
+              </li>
+              <li>
+                <a href="system_closed_disciplinary_cases.php">Closed cases</a>
+              </li>
+            </ul>
+            <!-- /.nav-second-level -->
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-globe fa-fw"></i> SA Main Website<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level collapse">
+              <li>
+                <a href="system_all_forms.php">Forms</a>
+              </li>
+              <li>
+                <a href="system_all_announcements.php">Announcements</a>
+              </li>
+              <li>
+                <a href="system_all_achievements.php">Achievements</a>
+              </li>
+              <li>
+                <a href="system_all_vendor_details.php">Vendors</a>
+              </li>
+              <li>
+                <a href="system_all_rules.php">Rules Dropdown</a>
+              </li>
+              <li>
+                <a href="system_all_sac_minutes.php">SAC Minutes</a>
+              </li>
+              <li>
+                <a href="system_all_quick_links.php">Quick Links</a>
+              </li>
+              <li>
+                <a href="system_all_team_members.php">Team Members</a>
+              </li>
+            </ul>
+            <!-- /.nav-second-level -->
+          </li>
+          <li>
+            <a href="system_track_departure_arrival_info.php"><i class="fa fa-bus fa-fw"></i> Station Leave Request</a>
+          </li>
+          <li>
+            <a href="system_student_details.php"><i class="fa fa-users fa-fw"></i> Search Student's Details</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+  </nav>
+  <div id="wrapper">
+    <div id="page-wrapper" style="min-height: 729px;">
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Recent 10 Entries
+            </div>
+            <div class="panel-body">
+              <div class="dataTable_wrapper">
+                <table class="table table-striped table-bordered table-hover" id="">
+                  <thead>
+                    <tr>
+                      <th valign="top" bgcolor="#dedede">
+                        <font>Entry Time</font>
+                      </th>
+                      <th valign="top" bgcolor="#dedede">
+                        <font>Application No.</font>
+                      </th>
+                      <th valign="top" bgcolor="#dedede">
+                        <font>Applicant</font>
+                      </th>
+                      <th valign="top" bgcolor="#dedede">
+                        <font>Dealing Person</font>
+                      </th>
+                      <th valign="top" bgcolor="#dedede">
+                        <font>Description</font>
+                      </th>
+                      <th valign="top" bgcolor="#dedede">
+                        <font>Edit</font>
+                      </th>
+                      <th valign="top" bgcolor="#dedede">
+                        <font>Details</font>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for internal_letter in internal_letters %}
+                    <tr class='old gradex'>
+                      <th>{{internal_letter.si_no}}</th>
+                      <th>{{internal_letter.in_date}}</th>
+                      <th>{{internal_letter.doc_type}}</th>
+                      <th>{{internal_letter.reference}}</th>
+                      <th>{{internal_letter.from}}</th>
+                      <th>{{internal_letter.to}}</th>
+                      <th>{{internal_letter.subject}}</th>
+                    </tr> {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+          </div>
+          <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+      </div>
+    </div>
+    <!-- /#page-wrapper -->
   </div>
 
+</body>
 
-
-
-
-</header>
-
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:300,400,700' />
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
-<nav role="navigation" class="navigation">
-  <ul class="navigation__links">
-
-    <li>
-      <a class="navigation__link" href="#home">
-        <i class="fa fa-home" aria-hidden="true"></i>
-        <p class="navigation__text navigation__text--home">Home</p>
-      </a>
-    </li>
-
-    <li>
-      <a class="navigation__link navigation__link--yellow" href="#about-me">
-        <i class="fa fa-user" aria-hidden="true"></i>
-        <p class="navigation__text navigation__text--about-me">add entry</p>
-      </a>
-    </li>
-
-    <li>
-      <a class="navigation__link navigation__link--teal" href="#services">
-        <i class="fa fa-wrench" aria-hidden="true"></i>
-        <p class="navigation__text navigation__text--services">Something</p>
-      </a>
-    </li>
-
-    <li>
-      <a class="navigation__link navigation__link--orange" href="#contact-me">
-        <i class="fa fa-envelope" aria-hidden="true"></i>
-        <p class="navigation__text navigation__text--contact-me">Contact Me</p>
-      </a>
-    </li>
-
-  </ul>
-</nav>
-<div class='container'>
-
-
-  {% if external_letters %}
-  <h1>External Letters</h1>
-  <table class='table'>
-    <tr>
-      <th>Si No.</th>
-      <th>from</th>
-      <th>subject</th>
-    </tr>
-    {% for external_letter in external_letters %}
-    <tr>
-      <th>{{external_letter.si_no}}</th>
-      <th>{{external_letter.get_fromm_display}}</th>
-      <th>{{external_letter.subject}}</th>
-    </tr>
-  </table>
-
-
-  {% endfor %}
-  {% endif %}
-  {% if internal_letters %}
-  <h1>Internal Letters</h1>
-  <table class='table'>
-    <tr>
-      <th>Si No.</th>
-      <th>in date</th>
-      <th>doc type</th>
-      <th>Reference</th>
-      <th>from</th>
-      <th>to</th>
-      <th>subject</th>
-    </tr>
-    {% for internal_letter in internal_letters %}
-    <tr>
-      <th>{{internal_letter.si_no}}</th>
-      <th>{{internal_letter.in_date}}</th>
-      <th>{{internal_letter.doc_type}}</th>
-      <th>{{internal_letter.reference}}</th>
-      <th>{{internal_letter.from}}</th>
-      <th>{{internal_letter.to}}</th>
-      <th>{{internal_letter.subject}}</th>
-    </tr>
-  </table>
-
-
-  {% endfor %}
-  {% endif %}
-</div>
-{% endblock %}
+</html>
